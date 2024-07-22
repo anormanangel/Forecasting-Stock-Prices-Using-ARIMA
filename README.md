@@ -43,7 +43,7 @@ Do you want to explore real-time stock data from Yahoo Finance? Check it out: ht
 3. How does removing volatility during data preprocessing impact the accuracy of stock price forecasts using the ARIMA model?
 
 # Tools I Used
-To forcast stock prices and impleemnt different trading strategies, I used the powers of several key tools & Libraries
+To forecast stock prices and implement ARIMA and different trading strategies, I used the powers of several key tools & Libraries
 
 1. **Libraries:**
     * pandas: For data manipulation and analysis.
@@ -57,17 +57,17 @@ To forcast stock prices and impleemnt different trading strategies, I used the p
 ### 1. Autocorrelation.
 The autocorrelation plot for Apple stock with lag 3 shows a strong positive linear relationship. This tight, diagonal clustering indicates high autocorrelation, suggesting recent past values strongly influence current prices. This pattern supports using an ARIMA model and implies that incorporating a lag of 3 could improve forecasting accuracy.
 
-![Autocorrelation plot with a Lag of 3]()
+![Autocorrelation plot with a Lag of 3](https://github.com/anormanangel/Forecasting-Stock-Prices-Using-ARIMA/blob/main/Assets/Cross%20Correlation.png)
 *Scatter Plot showing the correlation of a time series (Stick Price) with a lagged version of itself*
 
 ### 2. Stock Price Evolution Over Time
 The Apple stock price chart shows a downward trend from January 2022 to March 2023, with high volatility. Notable peaks and troughs are visible, including a significant drop to the lowest point around January 2023, followed by a slight recovery. The non-stationary pattern suggests differencing may be necessary for ARIMA modeling.
 
-![Stock Price Evolution Over Time]()
+![Stock Price Evolution Over Time](https://github.com/anormanangel/Forecasting-Stock-Prices-Using-ARIMA/blob/main/Assets/Stock%20Price%20Evolution%20Over%20Time.png)
 *Bar chat showing all columns in the dataset with no missing data*
 
 ### 3. Augmented Dickey-Fuller (ADF) Test to Check for Stationarity.
-The results from ADF These results are from an Augmented Dickey-Fuller (ADF) test showed test statistic (-2.716453) is greater than the 5% critical value (-2.871), and the p-value (0.071234) is above 0.05. This indicates that we fai to reject the null hypothesis of non-stationarity at the 5% significance level. Therefore, the time series is not stationary and will likely require differencing for ARIMA modeling.
+The results from ADF These results are from an Augmented Dickey-Fuller (ADF) test showed test statistic (-2.716453) is greater than the 5% critical value (-2.871), and the p-value (0.071234) is above 0.05. This indicates that we fail to reject the null hypothesis of non-stationarity at the 5% significance level. Therefore, the time series is not stationary and will likely require differencing for ARIMA modeling.
 
 1. **Test Statistic:** -2.716453
 2. **p-value: 0.071234**
@@ -84,7 +84,7 @@ The time series is not stationary.
 ### 4. Differencng to Remove Trend & Seasonality.
 The differenced Apple stock price plot shows fluctuations around zero, indicating improved stationarity. The data exhibits no clear trend, with price changes varying between approximately -10 and +10 units. Volatility appears consistent throughout, suggesting the differencing has addressed the non-stationarity issue observed in the original time series. This transformed data is likely more suitable for ARIMA modeling.
 
-![Differenced Stock Price]()
+![Differenced Stock Price](https://github.com/anormanangel/Forecasting-Stock-Prices-Using-ARIMA/blob/main/Assets/Differenced%20Time%20Series.png)
 *A plot showing the differenced stock price (Stationary data)*
 
 ### 5. Autocorrelation Function (ACF) and Partial Autocorrelation Function (PACF)
@@ -95,7 +95,7 @@ The ACF and PACF plots show:
 
 This pattern suggests an ARIMA(1,1,0) or ARIMA(0,1,1) model may be appropriate. The single significant lag in PACF indicates an AR(1) component, while the quick drop in ACF could suggest an MA(1) term. The differencing applied earlier accounts for the integrated (I) component.
 
-![ACF & PACF Plots]()
+![ACF & PACF Plots](https://github.com/anormanangel/Forecasting-Stock-Prices-Using-ARIMA/blob/main/Assets/Auto%20and%20Partial%20Autocorrelation.png)
 *ACF and PACF Plots*
 
 # Modeling Using ARIMA
@@ -123,13 +123,13 @@ The summary revealed that the ARIMA(1, 1, 2) model had a log-likelihood of -757.
 
 The SARIMAX results provide valuable insights into the ARIMA(1,1,2) model fitted to the stock price data. The Ljung-Box test (Q) with a p-value of 0.28 suggests no significant autocorrelation in the residuals, indicating a good model fit. However, the Jarque-Bera test's low p-value (0.00) implies non-normality in the residuals, which is common in financial data. The heteroskedasticity test (p-value 0.23) indicates constant variance in the residuals. The kurtosis of 4.16 confirms the non-normality, showing heavier tails than a normal distribution. These diagnostics suggest that while the ARIMA model captures the time series dynamics well
 
-![SARIMAX Results of ARIMA 1,1,2]()
+![SARIMAX Results of ARIMA 1,1,2](https://github.com/anormanangel/Forecasting-Stock-Prices-Using-ARIMA/blob/main/Assets/SARIMAX%20Results%20of%20ARIMA%201%2C1%2C2.png)
 *SARIMAX Results of ARIMA 1,1,2*
 
 ### ARIMA Model Forecast
 The red line at the end of the series represents the ARIMA model's forecast. It suggests a slight downward trend in the immediate future, though the forecast appears quite short-term. The model predicts a small decrease in price over the next few time periods.
 
-![ARIMA Model Forecast]()
+![ARIMA Model Forecast](https://github.com/anormanangel/Forecasting-Stock-Prices-Using-ARIMA/blob/main/Assets/SARIMAX%20Results%20of%20ARIMA%201%2C1%2C2.png)
 *ARIMA Model Forecast*
 
 ### Calculating Returns Using the Buy and Hold Strategy
