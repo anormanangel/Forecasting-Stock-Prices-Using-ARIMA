@@ -129,7 +129,7 @@ The SARIMAX results provide valuable insights into the ARIMA(1,1,2) model fitted
 ### ARIMA Model Forecast
 The red line at the end of the series represents the ARIMA model's forecast. It suggests a slight downward trend in the immediate future, though the forecast appears quite short-term. The model predicts a small decrease in price over the next few time periods.
 
-![ARIMA Model Forecast](https://github.com/anormanangel/Forecasting-Stock-Prices-Using-ARIMA/blob/main/Assets/SARIMAX%20Results%20of%20ARIMA%201%2C1%2C2.png)
+![ARIMA Model Forecast]([https://github.com/anormanangel/Forecasting-Stock-Prices-Using-ARIMA/blob/main/Assets/SARIMAX%20Results%20of%20ARIMA%201%2C1%2C2.png](https://github.com/anormanangel/Forecasting-Stock-Prices-Using-ARIMA/blob/main/Assets/ARIMA%20Model%20Forecast.png))
 *ARIMA Model Forecast*
 
 ### Calculating Returns Using the Buy and Hold Strategy
