@@ -14,12 +14,12 @@ indicate the type of ARIMA model used. The parameters can be defined as:
 * d: the number of times the raw observations are differenced; also known as the degree of differencing.
 * q: the size of the moving average window, also known as the order of the moving average.
 
-Python code? Check them out here on GitHub: 
+Python code? Check them out here on GitHub: https://bit.ly/3WeVrUH
 
 # Background
 Stock price forecasting is a critical aspect of financial analysis, providing investors with predictions on future price movements. Traditional methods often struggle to account for the inherent volatility and noise in stock price data. The ARIMA model, however, offers a robust statistical approach that can handle such complexities. By leveraging historical price data, the ARIMA model aims to identify underlying patterns and make future price predictions, thus aiding investors in their decision-making processes.
 
-The project entails loading historical stock price data, preprocessing it to ensure accuracy, fitting an ARIMA model to the data, and using the model to forecast future prices. The efficacy of the model is evaluated, and recommendations are made based on the forecasts. ​retain customers.
+The project entails loading historical stock price data, preprocessing it to ensure accuracy, fitting an ARIMA model to the data, and using the model to forecast future prices. The efficacy of the model is evaluated, and recommendations are made based on the forecasts. ​
 
 # The Dataset
 The dataset used in this project comprises real-time stock price data obtained from Yahoo Finance, which typically includes the following attributes:
